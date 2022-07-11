@@ -1,0 +1,17 @@
+<h2>Search</h2>
+
+<div class="input-group mb-3">
+  <input  #search (keyup)="onKey(search.value)" type="text" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+
+<ng-container *ngFor='let item of datalist; let i=index;'>
+<ul  class="list-group list-group-horizontal d-flex">
+    <li class="list-group-item flex-fill">{{ item.type }}</li>
+    <li class="list-group-item flex-fill">{{ item.name }}</li>
+    <li class="list-group-item flex-fill">
+      {{ item?.kill_chain_phases && item?.kill_chain_phases[0].phase_name }}
+      {{ item?.malware_types && item?.malware_types.join(' | ') }}
+    </li>
+</ul>
+
+</ng-container>
